@@ -29,3 +29,15 @@ public function validaIdade(string $idade) : bool
     }
     return true;
 }
+
+public function validaImagem(array $imagem) : bool
+{
+    $extensoesValidas = ['jpg', 'png'];
+    $extensaoArquivo = pathinfo(basename($imagem['name']), options: PATHINFO_EXTENSION);
+    if( !in_array($extensaoArquivo, $extensoesValidas))
+    {
+        setarMensagemErro( mensagem:'Informar uma extensao valida');
+        return false;
+    }
+    return true;
+}

@@ -4,17 +4,16 @@ session_start();
 
 public function setarMensagemErro(string $mensagem) : void
 {
-    $_SESSION['mensagem-de-erro'] = $mensagem;
+    $_SESSION['mensagem-de-erro'][] = $mensagem;
 }
 
-public function obterMensagemErro() : ?string
+public function obterMensagemErro() : ?array
 {
     if(isset($_SESSION['mensagem-de-erro']))
         return $_SESSION['mensagem-de-erro'];
     
     return null;        
 }
-
 
 public function setarMensagemSucesso(string $mensagem) : void
 {
